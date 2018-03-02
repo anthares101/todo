@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TaskRepository")
@@ -21,6 +22,8 @@ class Task
     /**
      * @var string
      * @ORM\Column(type="string", length=100)
+     * @Assert\NotBlank()
+     * @Assert\Length(min="1",max="100")
      */
     private $description;
 
@@ -65,7 +68,7 @@ class Task
     /**
      * @return string
      */
-    public function getDescription(): string
+    public function getDescription()
     {
         return $this->description;
     }
@@ -74,7 +77,7 @@ class Task
      * @param string $description
      * @return Task
      */
-    public function setDescription(string $description): Task
+    public function setDescription(string $description)
     {
         $this->description = $description;
         return $this;
@@ -92,7 +95,7 @@ class Task
      * @param bool $isDone
      * @return Task
      */
-    public function setIsDone(bool $isDone): Task
+    public function setIsDone(bool $isDone)
     {
         $this->isDone = $isDone;
         return $this;
@@ -110,7 +113,7 @@ class Task
      * @param \DateTime $createdAt
      * @return Task
      */
-    public function setCreatedAt(\DateTime $createdAt): Task
+    public function setCreatedAt(\DateTime $createdAt)
     {
         $this->createdAt = $createdAt;
         return $this;
