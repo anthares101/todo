@@ -62,7 +62,7 @@ class User implements UserInterface, \Serializable
      */
     public function getPassword()
     {
-        $this->password;
+        return $this->password;
     }
 
     /**
