@@ -130,7 +130,7 @@ class User implements UserInterface, \Serializable
     {
         return serialize(array(
             $this->id,
-            $this->username,
+            $this->usename,
             $this->password,
             // see section on salt below
             // $this->salt,
@@ -150,7 +150,7 @@ class User implements UserInterface, \Serializable
     {
         list (
             $this->id,
-            $this->username,
+            $this->usename,
             $this->password,
             // see section on salt below
             // $this->salt
